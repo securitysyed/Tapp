@@ -8,7 +8,7 @@ var urlDatabase = {
 };
 
 app.get("/", (req, res) => {
-  res.send("Hello!");
+  res.render("urls");
 });
 
 app.listen(PORT, () => {

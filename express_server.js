@@ -15,7 +15,7 @@ var urlDatabase = {
 // Route HANDLER
 app.get("/", (req, res) => {
   // Looks in the filesystem for a file system at ./views/... called urls.ejs (because the view engine is ejs)
-  res.render("urls", { variable: 'Something else' });
+  res.render("urls_index", { variable: 'Something else' });
 });
 
 app.get("/urls/:var/and/:xyz", (req, res) => {
@@ -24,6 +24,16 @@ app.get("/urls/:var/and/:xyz", (req, res) => {
 
 app.get("/urls.json", (req, res) => {
   res.json(urlDatabase);
+});
+
+app.get("/urls/:shortURL", (req, res) => {
+  let templateVars = { shortURL: req.params.shortURL, longURL: /* What goes here? */ };
+  res.render("urls_show", templateVars);
+});
+
+app.get("/urls", (req, res) => {
+  let templateVars = { urls: urlDatabase, variable:"test" };
+  res.render("urls_index", templateVars);
 });
 
 app.get("/hello", (req, res) => {

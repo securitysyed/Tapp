@@ -14,8 +14,9 @@ var urlDatabase = { //part of Step 1
 
 // Route HANDLER
 app.get("/", (req, res) => { //part of Step 1
+  let templateVars = { urls: urlDatabase, variable:"test" }
   // Looks in the filesystem for a file system at ./views/... called urls.ejs (because the view engine is ejs)
-  res.render("urls_index", { variable: 'Something else' });
+  res.render("urls_index", templateVars);
 });
 
 app.get("/urls/:var/and/:xyz", (req, res) => {
@@ -27,15 +28,13 @@ app.get("/urls.json", (req, res) => { //Step 3 (look for step 4 too), here we ar
 });
 
 app.get("/urls/:shortURL", (req, res) => {
-  let templateVars = { shortURL: req.params.shortURL, longURL: /* What goes here? */ };
+  let templateVars = { shortURL: req.params.shortURL, longURL: urlDatabase[req.params.shortURL] };
   res.render("urls_show", templateVars);
 });
 
 app.get("/urls", (req, res) => {
   let templateVars = { urls: urlDatabase, variable:"test" };
-  res.render("urls_index", {
-
-  });
+  res.render("urls_index", templateVars);
 });
 
 app.get("/hello", (req, res) => {
@@ -49,3 +48,4 @@ app.listen(PORT, () => {
 
 
 // Step 4 and so on: Make sure every step is tested via the cmd. and chrome: http://localhost:8080/
+//We should inspect this with curl too by: curl -i http://localhost:8080/hello, when the server is up. To tabs of cmd, one for server up and the second to test in curl.

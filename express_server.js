@@ -33,7 +33,9 @@ app.get("/urls/:shortURL", (req, res) => {
 
 app.get("/urls", (req, res) => {
   let templateVars = { urls: urlDatabase, variable:"test" };
-  res.render("urls_index", templateVars);
+  res.render("urls_index", {
+
+  });
 });
 
 app.get("/hello", (req, res) => {
@@ -44,3 +46,6 @@ app.get("/hello", (req, res) => {
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}!`);
 });
+
+
+// Make sure every step is tested via the cmd. and chrome: http://localhost:8080/

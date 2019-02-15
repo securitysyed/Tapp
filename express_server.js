@@ -46,6 +46,13 @@ app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}!`);
 });
 
+app.post("/urls/:shortURL/delete", (req, res) => {
+
+  delete urlDatabase[req.params.shortURL]
+  console.log("urldatabase", urlDatabase)
+  res.redirect("/urls");
+});
+
 
 // Step 4 and so on: Make sure every step is tested via the cmd. and chrome: http://localhost:8080/
 //We should inspect this with curl too by: curl -i http://localhost:8080/hello, when the server is up. To tabs of cmd, one for server up and the second to test in curl.

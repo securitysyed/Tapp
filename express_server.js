@@ -8,8 +8,8 @@ app.set("view engine", "ejs"); //Step 2
 // serve STATIC files from the filesystem like images, css, javascript, erc.
 
 var urlDatabase = { //part of Step 1
-  "b2xVn2": "http://www.lighthouselabs.ca",
-  "9sm5xK": "http://www.google.com"
+  "O4QdKX": "http://www.tsn.ca",
+  "JeQv74": "http://www.google.ca"
 };
 
 // Route HANDLER

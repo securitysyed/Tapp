@@ -11,12 +11,13 @@
 </head>
 <body style="font-size:20px; padding:50px;">
   <% include partials/_header.ejs %>
-    <form method="POST" action="/urls/9sm5xK/delete"></form>
+  <!-- delete and POST method in form -->
     <h1>My URLs</h1>
     <li><a href="">Create New TinyURL</a></li>
   <ul>
     <% for (var shortURL in urls) { %>
-    <li> <%= shortURL %> : <%= urls[shortURL] %> </li>
+    <li> <%= shortURL %> : <%= urls[shortURL] %><form method="POST" action="/urls/<%= shortURL %>/delete"><input type="submit">Delete</input></form>
+</li>
     <% }; %>
   </ul>
 <!-- Add EJS code here -->
